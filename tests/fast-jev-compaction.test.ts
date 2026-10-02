@@ -386,7 +386,7 @@ describe('compact', () => {
     const broken: JevAsker = {
       ask: async () => ({ answers: { call_t1: { noul: 0.5 } } }),
     };
-    await expect(compact(transcript(), broken, { preserveRecentMessages: 1 })).rejects.toThrow(
+    await expect(compact(transcript(), broken, { preserveRecentMessages: 1, minDropChars: 0 })).rejects.toThrow(
       /Invalid Jev answer/,
     );
   });
@@ -430,7 +430,7 @@ describe('HTTP client', () => {
     const keyless = new JevClient({ apiKey: '' });
     await expect(keyless.ask('s', {})).rejects.toThrow(/TYPESAFE_API_KEY/);
     await expect(
-      compactMessages(transcript(), { apiKey: '', preserveRecentMessages: 1 }),
+      compactMessages(transcript(), { apiKey: '', preserveRecentMessages: 1, minDropChars: 0 }),
     ).rejects.toThrow(/TYPESAFE_API_KEY/);
   });
 });

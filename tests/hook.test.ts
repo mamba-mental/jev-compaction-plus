@@ -144,7 +144,7 @@ describe('compactSession', () => {
     const config = resolveHookConfig({ preserveRecentMessages: 1 });
     await expect(compactSession(transcript(), config, jevFetch(() => 0))).rejects.toThrow(/TYPESAFE_API_KEY/);
     await expect(
-      compactSession(transcript(), { ...config, apiKey: 'k' }, async () => ({ status: 500, ok: false, text: 'x' })),
+      compactSession(transcript(), { ...config, apiKey: 'k', minDropChars: 0 }, async () => ({ status: 500, ok: false, text: 'x' })),
     ).rejects.toThrow(/500/);
   });
 });

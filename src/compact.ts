@@ -324,7 +324,9 @@ export async function compact(
   const started = Date.now();
   const resolved = resolveOptions(options);
   const calls = collectToolCalls(messages, resolved.preserveRecentMessages, resolved.previewChars);
-  const candidates = calls.filter((call) => !call.pinned);
+  const candidates = calls.filter(
+    (call) => !call.pinned && call.resultChars >= resolved.minDropChars,
+  );
   const charsBefore = messages.reduce((sum, message) => sum + messageChars(message), 0);
 
   let fitted: { tokens: number; stage: string } = { tokens: 0, stage: '' };

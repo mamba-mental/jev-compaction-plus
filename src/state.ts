@@ -60,6 +60,7 @@ export function isPinned(
  * result are not candidates (there is nothing to drop yet).
  */
 export function previewOf(text: string, chars: number): string {
+  if (chars === 0) return '';
   if (text.length <= chars) return text;
   const head = Math.floor(chars * 0.7);
   return abridge(text, head, Math.max(0, chars - head));

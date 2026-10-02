@@ -2,3 +2,7 @@ node_modules
 dist
 .env
 demo/JevDemo/build
+autoresearch-results/
+benchmarks/check-experiment.mjs
+benchmarks/experiment-v2.mjs
+TASK-PLAN.md

@@ -1,5 +1,12 @@
 # jev-compaction-plus
 
+This fork adds three verified offline improvements: correct zero-length previews,
+rejection of invalid probability scores, and fewer requests by skipping results
+that the existing small-result rule always retains. See the
+[research and measured results](docs/RESEARCH-AND-RESULTS.md) for the evaluation,
+reproduction commands, and deployment limits. The upstream timing numbers below
+were not re-measured for this fork.
+
 **Claude Code compaction in about half a second instead of about 35.**
 
 When a Claude Code session fills up, `/compact` makes Opus stop, re-read the whole

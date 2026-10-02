@@ -20,6 +20,7 @@
   ],
   "scripts": {
     "build": "tsc",
+    "verify:release": "npm run build && node benchmarks/release-smoke.mjs",
     "typecheck": "tsc --noEmit && npm run typecheck:hooks",
     "test": "vitest run",
     "demo": "tsx examples/demo.ts",
